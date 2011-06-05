@@ -18,3 +18,6 @@ py = {}
 # Directory where the music is located. It is assumed that each folder
 # in this directory is a band, identified by its name.
 py['music_folder'] = u'~/Music/iTunes/iTunes Music'
+
+# The file where the existing groups are located
+py['existing_file'] = u'~/existing.dat'

@@ -2,3 +2,4 @@
 py = {}
 
 py['music_folder'] = u'.'
+py['existing_file'] = u''

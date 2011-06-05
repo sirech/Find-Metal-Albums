@@ -33,15 +33,15 @@ class Finder(object):
         Loads the list of bands.
         '''
         self._cfg = config
-        self._load_list()
+        self._bands = self._load_list()
 
     def _load_list(self):
         '''
-        Every folder in the music folder is loaded as a band.
+        Every folder in the music folder is loaded as a band, and returned as list.
         '''
         path = os.path.expanduser(self._cfg['music_folder'])
-        self._bands = sorted(set(process_band_name(f) for f in os.listdir(path)
-                                 if os.path.isdir(os.path.join(path, f))))
+        return sorted(set(process_band_name(f) for f in os.listdir(path)
+                          if os.path.isdir(os.path.join(path, f))))
 
     @property
     def bands(self):

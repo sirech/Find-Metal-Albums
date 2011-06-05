@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import os
+import codecs
 
 def process_band_name(name):
     '''
@@ -39,8 +40,8 @@ class Finder(object):
         Every folder in the music folder is loaded as a band.
         '''
         path = os.path.expanduser(self._cfg['music_folder'])
-        self._bands = set(process_band_name(f) for f in os.listdir(path)
-                          if os.path.isdir(os.path.join(path, f)))
+        self._bands = sorted(set(process_band_name(f) for f in os.listdir(path)
+                                 if os.path.isdir(os.path.join(path, f))))
 
     @property
     def bands(self):
@@ -49,10 +50,11 @@ class Finder(object):
         '''
         return iter(self._bands)
 
-    def to_file(self, fileName):
+    def to_file(self, fileName, folder='.'):
         '''
         Persists the list of bands to the given file, one band per line.
         '''
-        f = open(fileName, 'w')
+        path = os.path.expanduser(folder)
+        f = codecs.open(os.path.join(path,fileName), 'w', 'utf-8')
         f.write('\n'.join(self.bands))
         f.close()

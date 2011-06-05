@@ -2,7 +2,7 @@
 from test_base import BaseTest
 from metalfinder.existing import process_band_name, Finder
 
-from mock import patch
+from mock import patch, Mock
 
 class ExistingTest(BaseTest):
 
@@ -42,3 +42,10 @@ class ExistingTest(BaseTest):
     def test_bands_members(self):
         for band in [u'metallica', u'heroesdelsilencio', u'skap', u'withintemptation', u'rageagainstthemachine']:
             self.assertTrue(band in self.finder.bands)
+
+    @patch('codecs.open')
+    def test_to_file(self, opener):
+        opener.return_value = Mock(spec=file)
+        self.finder.to_file('test')
+        write = opener.return_value.write
+        write.assert_called_once_with(u'heroesdelsilencio\nmetallica\nrageagainstthemachine\nskap\nwithintemptation')

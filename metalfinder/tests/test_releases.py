@@ -2,7 +2,7 @@
 from test_base import BaseTest
 from metalfinder.releases import Scrapper
 
-from mock import patch, Mock
+from mock import Mock
 
 class ReleasesTest(BaseTest):
 

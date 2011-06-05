@@ -1,3 +1,16 @@
+# Backups
 .DS_Store
 *~
 #*#
+
+# Python
+*.pyc
+*.egg
+*.egg-info
+.ropeproject
+
+# App specific
+*.log
+config.py
+members.json
+logging.conf

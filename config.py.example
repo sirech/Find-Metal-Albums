@@ -1,0 +1,20 @@
+# -*- coding: utf-8 -*-
+#
+# This file contains the configuration for the application.
+#
+
+# Do not edit this
+py = {}
+
+###############
+# CREDENTIALS
+###############
+
+
+###############
+# EXISTING
+###############
+
+# Directory where the music is located. It is assumed that each folder
+# in this directory is a band, identified by its name.
+py['music_folder'] = u'~/Music/iTunes/iTunes Music'

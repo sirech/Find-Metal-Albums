@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from test_base import BaseTest
-from metalfinder.releases import Scrapper
+from metalfinder.releases import Scrapper, month_as_number
 
 from mock import Mock
 
@@ -13,6 +13,9 @@ class ReleasesTest(BaseTest):
         self.opener.open.return_value = open('test_data/2011.html')
         self.scrapper._opener = self.opener
 
+    def test_month_as_member(self):
+        self.assertEqual(month_as_number('August'), 8)
+        
     def _get_soup(self):
         return self.scrapper._soupify('')
 

@@ -33,6 +33,11 @@ def remove_citation(s):
     '''Remove the citation (wikipedia-style) of the given string.'''
     return re.sub(CITATION, '', s)
 
+def month_as_number(month):
+    '''Returns the month, which has to be a member of the MONTHS list,
+    as number in the range [1,12]'''
+    return MONTHS.index(month) + 1
+
 class Scrapper(object):
     '''
     This class is responsible for scrapping a Wikipedia page which
@@ -64,6 +69,15 @@ class Scrapper(object):
 
     @property
     def albums(self):
+        '''Gets the albums for the current year.
+
+        The result is a list with a tuple for each month like this:
+
+        [('January', *result of albums for Jan*),
+        ('February', *result of albums for Feb*),
+        ...
+        ]
+        '''
         soup = self._soupify(url_for_current_year())
         albums = []
         for month in MONTHS:
@@ -80,6 +94,10 @@ class Scrapper(object):
         this, the heading for the month is retrieved. Right after it
         is the table with the data. Only the albums from groups in the
         _existing set are included.
+
+        The result is a list of tuples, like this:
+
+        [('Metallica', 'Master of Puppets', 15), ('AFI', 'Sing the Sorrow', 23)]
 
         soup the soup object used to scrap the site
 

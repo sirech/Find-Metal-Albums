@@ -10,6 +10,24 @@ py = {}
 # CREDENTIALS
 ###############
 
+# The user of the calendar. It is part of its url, in the form
+# id@group.calendar.google.com. For example, a url could be:
+#
+# http://www.google.com/calendar/feeds/53zke932hs94Adfas%40group.calendar.google.com/private/full
+#
+# Then the user would be
+# '53zke932hs94Adfas@group.calendar.google.com'. Note that in the url,
+# @ is escaped.
+py['calendar_user'] = 'id@groups.calendar.google.com'
+
+
+###############
+# CALENDAR
+###############
+
+# The prefix used for the entries uploaded to the calendar
+py['entry_prefix'] = '[ALBUM]'
+
 
 ###############
 # EXISTING

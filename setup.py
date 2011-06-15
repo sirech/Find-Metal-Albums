@@ -25,7 +25,8 @@ setup(
     test_suite="metalfinder.tests.testrunner.test_suite",
     install_requires=[
         'Mock>=0.7.0',
-        'BeautifulSoup>=3.2.0'
+        'BeautifulSoup>=3.2.0',
+        'gdata'
         ],
     classifiers=[
         "Development Status :: 3 - Alpha",

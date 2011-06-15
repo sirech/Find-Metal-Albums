@@ -1,5 +1,5 @@
 {
     "name": "Find Metal Albums",
-    "version": "0.0.1",
+    "version": "0.2.0",
     "description": "Connect to Wikipedia, find new releases for metal bands in a given list, and update the dates to a Google Calendar account"
 }

@@ -93,7 +93,7 @@ class Notifier(object):
         logger.debug('Commiting event... title: %s, starts:%s, ends:%s',
                      event.title.text, event.when[0].start_time, event.when[0].end_time)
         if isNew:
-            return self._clientInsertEvent(event, self._uri_for_calendar().ToUri(),
+            return self._client.InsertEvent(event, self._uri_for_calendar().ToUri(),
                                            { 'redirects_remaining' : 10 })
         else:
             return self._client.UpdateEvent(event.GetEditLink().href, event, { 'redirects_remaining' : 10 })

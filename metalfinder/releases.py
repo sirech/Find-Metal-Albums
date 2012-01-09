@@ -103,7 +103,12 @@ class Scrapper(object):
 
         month the month to search for, which is an entry in MONTHS
         '''
-        prev = soup.find('span', id=month).parent
+
+        m = soup.find('span', id=month)
+        if m is None:
+            return []
+
+        prev = m.parent
         entries = prev.findNextSibling('table').findAll('tr')
         albums = []
         day = None

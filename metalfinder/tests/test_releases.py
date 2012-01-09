@@ -15,7 +15,7 @@ class ReleasesTest(BaseTest):
 
     def test_month_as_member(self):
         self.assertEqual(month_as_number('August'), 8)
-        
+
     def _get_soup(self):
         return self.scrapper._soupify('')
 
@@ -43,6 +43,11 @@ class ReleasesTest(BaseTest):
         albums = self.scrapper._albums_for_month(self._get_soup(), 'March')
         self.assertEqual(len(albums), 4)
         self.assertEqual(albums[0], (u'Children of Bodom', u'Relentless Reckless Forever', 2))
+
+    def test_albumgs_for_missing_month(self):
+        self._get_existing()
+        albums = self.scrapper._albums_for_month(self._get_soup(), 'August')
+        self.assertEqual(len(albums), 0)
 
     def test_albums(self):
         self._get_existing()

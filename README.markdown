@@ -17,7 +17,7 @@ represents a group, as a line in a file.
 
 ### Scrapper
 
-Parses a [http://en.wikipedia.org](Wikipedia) page which contains the
+Parses a [Wikipedia](http://en.wikipedia.org) page which contains the
 new releases for metal bands in a given year. Relevant albums, which
 are the ones from groups obtained in the previous step, are stored, as
 well as the release date and band name.
